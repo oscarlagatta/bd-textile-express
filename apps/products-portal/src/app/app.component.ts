@@ -71,25 +71,25 @@ export class AppComponent implements OnInit, AfterViewInit {
       {
         label: 'Styles',
         icon: 'fa fa-clock-o',
-        routerLink: ['/styles'],
+        routerLink: ['/'],
         command: event => handleSelected(event)
       },
       {
         label: 'Products',
         icon: 'fa fa-tasks',
-        routerLink: ['/products'],
+        routerLink: ['/'],
         command: event => handleSelected(event)
       },
       {
         label: 'My Profile',
         icon: 'fa fa-users',
-        routerLink: ['/profile'],
+        routerLink: ['/'],
         command: event => handleSelected(event)
       },
       {
         label: 'Settings',
         icon: 'fa fa-sliders',
-        routerLink: ['/settings'],
+        routerLink: ['/'],
         command: event => handleSelected(event)
       }
     ];
