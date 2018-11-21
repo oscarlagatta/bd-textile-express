@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~primeicons/primeicons.css';
+
+/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #d9e0e7 !important;
+  margin: 0px;
+  font-size: 1em !important;
+}
+
+.ui-panel-titlebar {
+  background-color: #2f8ee5 !important;
+  color: white !important;
+}
+
+.ui-menu {
+  width: auto !important;
+  margin: 0px !important;
+  border: none !important;
+  background-color: #2d353c !important;
+}
+
+.ui-menu-list {
+  background-color: black;
+}
+
+.ui-menuitem-text {
+  color: white !important;
+}
+
+.ui-menuitem-icon {
+  color: white !important;
+  font-size: large !important;
+  margin-right: 1em;
+}
+
+body .ui-menu .ui-menuitem :hover {
+  background-color: #2f8ee5 !important;
+}
+
+.menu-selected {
+  background-color: #f15b2a !important;
+  color: #ffffff;
+}
+
+/* Debugging Layouts
+@media screen and (min-width: 64.063em) {
+  .ui-lg-3 {
+    background-color: green;
+  }
+}
+
+@media screen and (min-width: 40.063em) {
+  .ui-md-6 {
+    background-color: yellow;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  .ui-sm-12 {
+    background-color: palevioletred;
+  }
+}
+*/
