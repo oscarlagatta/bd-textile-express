@@ -1,0 +1,7 @@
+<ecom-workspace-help-banner (help)="showHelp()" *ngIf="err && handler">
+</ecom-workspace-help-banner>
+<ecom-workspace-help-banner *ngIf="err && !handler">
+</ecom-workspace-help-banner>
+
+<button (click)="toggleErr()">Toggle Error</button>
+<button (click)="toggleHandler()">Toggle Handler</button>

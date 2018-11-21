@@ -1,0 +1,85 @@
+<form [formGroup]="brandForm" (ngSubmit)="onSubmit()" class="ui-g">
+  <p-panel header="Add Brand" class="ui-g-12">
+    <div class="ui-g">
+      <label for="brandName" class="ui-g-12 ui-md-2">Name*</label>
+
+      <input
+        for="brandName"
+        class="ui-g-12 ui-md-5"
+        pInputText
+        id="brandName"
+        formControlName="brandName"
+        placeholder="Enter Brand Name"
+      />
+
+      <div class="ui-g-12 ui-md-5">
+        <!-- for error messages -->
+        <ecom-workspace-fielderrors
+          [form]="brandForm"
+          fieldName="brandName"
+          niceName="Brand Name"
+        ></ecom-workspace-fielderrors>
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <label for="isSuppressed" class="ui-g-12 ui-md-2"></label>
+
+      <p-checkbox
+        [formControl]="brandForm.controls['isSuppressed']"
+        for="isSuppressed"
+        class="ui-g-12 ui-md-5"
+        label="Is Suppressed"
+        id="isSuppressed"
+        formControlName="isSuppressed"
+      ></p-checkbox>
+    </div>
+    <div class="ui-g">
+      <label for="isVisible" class="ui-g-12 ui-md-2"></label>
+
+      <p-checkbox
+        [formControl]="brandForm.controls['isVisible']"
+        for="isVisible"
+        class="ui-g-12 ui-md-5"
+        label="Is Visible"
+        id="isVisible"
+        formControlName="isVisible"
+      ></p-checkbox>
+    </div>
+    <button
+      pButton
+      type="submit"
+      [disabled]="hasFormErrors()"
+      label="Save"
+      icon="fa fa-floppy-o"
+    ></button>
+  </p-panel>
+</form>
+
+<p-panel header="Brands" class="ui-g-12">
+  <p-table
+    [value]="brands"
+    [paginator]="true"
+    [rows]="5"
+    [resizableColumns]="true"
+    columnResizeMode="expand"
+    selectionMode="single"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Suppressed</th>
+        <th>Visible</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-brand>
+      <tr>
+        <td>{{ brand.brandId }}</td>
+        <td>{{ brand.brandName }}</td>
+        <td>{{ brand.isSuppressed }}</td>
+        <td>{{ brand.isVisible }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-panel>

@@ -3,7 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://localhost:44306/api',
+  openIdConnectSettings: {
+    // AS PER IDP configuration
+    authority: 'https://localhost:44398/',
+    client_id: 'productsportalclient',
+    redirect_uri: 'https://localhost:4203/signin-oidc',
+    scope: 'openid profile roles products portal',
+    response_type: 'id_token token',
+    post_logout_redirect_uri: 'https://localhost:4203/',
+    automaticSilentRenew: true,
+    silent_redirect_uri: 'https://localhost:4203/redirect-silentrenew'
+  }
 };
 
 /*

@@ -1,0 +1,14 @@
+<button (click)="toggleTemplateSelected()">Toggle VIEW/CONTENT</button>
+<hr />
+
+<p>
+  SHOWING ... <span class="viewType" *ngIf="showViewTemplate">VIEW</span>
+  <span class="viewType" *ngIf="!showViewTemplate">CONTENT</span> TEMPLATE
+</p>
+
+<ng-container *ngTemplateOutlet="liveTemplate"></ng-container>
+
+<ng-template #view>
+  THIS IS "VIEW" CONTENT INSIDE THE CHILD COMPONENT'S TEMPLATE AND QUERIED WITH
+  @ViewChild
+</ng-template>

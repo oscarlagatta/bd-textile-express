@@ -3,9 +3,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AppComponent, TrackDirective } from './app.component';
 import { NxModule } from '@nrwl/nx';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -13,19 +13,85 @@ import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
 
+import { AddRequestHeaderInterceptor } from './services/add-header.interceptor';
+import { LogResponseInterceptor } from './services/log-response.interceptor';
+import { CacheInterceptor } from './services/cache.interceptor';
+import { HttpCacheService } from './services/http-cache.service';
+import { InputDecoratorWidgetComponent } from './components/input-decorator-widget/input-decorator-widget.component';
+import { BrandComponent } from './components/input-decorator-widget/brand/brand.component';
+import { OutputDecoratorComponent } from './components/output-decorator/output-decorator.component';
+import { HelpBannerComponent } from './components/output-decorator/help-banner/help-banner.component';
+import { QueryDecoratorComponent } from './components/query-decorator/query-decorator.component';
+import { ToggleViewContentComponent } from './components/query-decorator/toggle-view-content/toggle-view-content.component';
+import { BrandService } from './services/brands.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BrandResolverService } from './services/brand-resolver.service';
+
+import {
+  MenuModule,
+  PanelModule,
+  ChartModule,
+  InputTextModule,
+  ButtonModule,
+  MessageModule,
+  CheckboxModule
+} from 'primeng/primeng';
+
+import { PaginatorModule } from 'primeng/paginator';
 import { TableModule } from 'primeng/table';
 
-import { HttpClientModule } from '@angular/common/http';
+import { SettingsComponent } from './components/settings/settings.component';
+import { StatisticComponent } from './components/statistic/statistic.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrandsComponent } from './components/brands/brands.component';
+import { FielderrorsComponent } from './components/fielderrors/fielderrors.component';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+const routes: Routes = [
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    resolve: { resolvedBrands: BrandResolverService }
+  },
+  {
+    path: 'brands',
+    component: BrandsComponent
+  }
+];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    TrackDirective,
+    InputDecoratorWidgetComponent,
+    BrandComponent,
+    OutputDecoratorComponent,
+    HelpBannerComponent,
+    QueryDecoratorComponent,
+    ToggleViewContentComponent,
+    SettingsComponent,
+    StatisticComponent,
+    BrandsComponent,
+    FielderrorsComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    PanelModule,
+    MenuModule,
+    MessageModule,
+    ButtonModule,
+    CheckboxModule,
+    ChartModule,
     TableModule,
+    PaginatorModule,
+    InputTextModule,
     NxModule.forRoot(),
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
     StoreModule.forRoot(
       {},
       { metaReducers: !environment.production ? [storeFreeze] : [] }
@@ -34,7 +100,26 @@ import { HttpClientModule } from '@angular/common/http';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule
   ],
-  providers: [],
+  providers: [
+    BrandService,
+    BrandResolverService,
+    HttpCacheService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AddRequestHeaderInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LogResponseInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CacheInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,0 +1,60 @@
+<div class="ui-g">
+  <ecom-workspace-statistic
+    label="Products"
+    value="132"
+    icon="fab fa-product-hunt"
+    colour="#00ACAC"
+    class="ui-g-12 ui-md-6 ui-lg-3"
+  ></ecom-workspace-statistic>
+
+  <ecom-workspace-statistic
+    label="Styles"
+    value="35"
+    icon="fa fa-hourglass-half"
+    colour="#2F8EE5"
+    class="ui-g-12 ui-md-6 ui-lg-3"
+  ></ecom-workspace-statistic>
+
+  <ecom-workspace-statistic
+    label="Brands"
+    value="23"
+    icon="fa fa-hourglass-half"
+    colour="#6C76AF"
+    class="ui-g-12 ui-md-6 ui-lg-3"
+  ></ecom-workspace-statistic>
+
+  <ecom-workspace-statistic
+    label="Suppliers"
+    value="4"
+    icon="fa fa-users"
+    colour="#EFA64C"
+    class="ui-g-12 ui-md-6 ui-lg-3"
+  ></ecom-workspace-statistic>
+</div>
+
+<div class="ui-g">
+  <p-panel header="Products By Brand (pie)" class="ui-g-12 ui-md-6">
+    <p-chart
+      type="pie"
+      [data]="hoursByProjectChartData"
+      [options]="chartOptions"
+    ></p-chart>
+  </p-panel>
+
+  <p-panel header="Products By Brand (doughnut)" class="ui-g-12 ui-md-6">
+    <p-chart type="doughnut" [data]="hoursByProjectChartData"></p-chart>
+  </p-panel>
+</div>
+
+<ecom-workspace-settings></ecom-workspace-settings>
+
+<ecom-workspace-input-decorator-widget></ecom-workspace-input-decorator-widget>
+
+<p>dashboard works!</p>
+<ul>
+  <li *ngFor="let brand of allBrands">{{ brand.brandName }}</li>
+</ul>
+
+<div><ecom-workspace-output-decorator></ecom-workspace-output-decorator></div>
+
+<div><ecom-workspace-query-decorator></ecom-workspace-query-decorator></div>
