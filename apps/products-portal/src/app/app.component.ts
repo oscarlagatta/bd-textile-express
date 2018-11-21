@@ -3,9 +3,11 @@ import {
   Directive,
   Input,
   HostListener,
-  OnInit
+  OnInit,
+  ViewChild,
+  AfterViewInit
 } from '@angular/core';
-import { MenuItem } from 'primeng/primeng';
+import { MenuItem, Menu } from 'primeng/primeng';
 import { Brand } from './domain/brand';
 import { BrandService } from './services/brands.service';
 import { Router } from '@angular/router';
@@ -29,10 +31,14 @@ export class TrackDirective {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'products-portal';
 
   menuItems: MenuItem[];
+  miniMenuItems: MenuItem[];
+
+  @ViewChild('bigMenu') bigMenu: Menu;
+  @ViewChild('smallMenu') smallMenu: Menu;
 
   allBrands: Brand[];
   selectedBrand: Brand;
@@ -40,12 +46,12 @@ export class AppComponent implements OnInit {
   constructor(private brandService: BrandService, private router: Router) {}
 
   ngOnInit() {
-    let handleSelected = function(event) {
-      let allMenus = jQuery(event.originalEvent.target).closest('ul');
-      let allLinks = allMenus.find('.menu-selected');
+    const handleSelected = function(event) {
+      const allMenus = jQuery(event.originalEvent.target).closest('ul');
+      const allLinks = allMenus.find('.menu-selected');
 
       allLinks.removeClass('menu-selected');
-      let selected = jQuery(event.originalEvent.target).closest('a');
+      const selected = jQuery(event.originalEvent.target).closest('a');
       selected.addClass('menu-selected');
     };
 
@@ -88,6 +94,12 @@ export class AppComponent implements OnInit {
       }
     ];
 
+    this.miniMenuItems = [];
+    this.menuItems.forEach((item: MenuItem) => {
+      const miniItem = { icon: item.icon, routerLink: item.routerLink };
+      this.miniMenuItems.push(miniItem);
+    });
+
     this.brandService
       .getAllBrands()
       .subscribe(
@@ -120,5 +132,23 @@ export class AppComponent implements OnInit {
         (data: Brand) => console.log('added new brand', data),
         err => console.log(err)
       );
+  }
+
+  selectInitialMenuItemBasedOnUrl() {
+    const path = document.location.pathname;
+    const menuItem = this.menuItems.find(item => {
+      return item.routerLink[0] === path;
+    });
+    if (menuItem) {
+      const iconToFind = '.' + menuItem.icon.replace('fa ', ''); // make fa fa-home into .fa-home
+      const selectedIcon = document.querySelector(`${iconToFind}`);
+      jQuery(selectedIcon)
+        .closest('li')
+        .addClass('menu-selected');
+    }
+  }
+
+  ngAfterViewInit() {
+    this.selectInitialMenuItemBasedOnUrl();
   }
 }
