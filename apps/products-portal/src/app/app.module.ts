@@ -78,6 +78,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/dashboard',
+    resolve: { resolvedBrands: BrandResolverService },
+    pathMatch: 'full'
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent,
     resolve: { resolvedBrands: BrandResolverService }
