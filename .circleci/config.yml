@@ -28,14 +28,14 @@ jobs:
             - v1-dependencies-
 
       - run: yarn install
-      - run: docker build -t olagatta.azurecr.io/bd:1.0 .
-      - run: docker login --username $DOCKER_USER --password $DOCKER_PASS olagatta.azurecr.io
-      - run: docker push olagatta.azurecr.io/bd:1.0
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
+      # build!
       - run: yarn ng build products-portal --prod
+      - run: docker build -t olagatta.azurecr.io/bd:1.0 .
+      - run: docker login --username $DOCKER_USER --password $DOCKER_PASS olagatta.azurecr.io
+      - run: docker push olagatta.azurecr.io/bd:1.0
