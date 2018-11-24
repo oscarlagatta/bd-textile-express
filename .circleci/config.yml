@@ -28,15 +28,9 @@ jobs:
             - v1-dependencies-
 
       - run: yarn install
-      - run:
-          command: |
-            docker build -t olagatta.azurecr.io/bd:1.0 .
-      - run:
-          command: |
-            docker login --username $DOCKER_USER --password $DOCKER_PASS olagatta.azurecr.io
-      - run:
-          command: |
-            docker push olagatta.azurecr.io/bd:1.0
+      - run: docker build -t olagatta.azurecr.io/bd:1.0 .
+      - run: docker login --username $DOCKER_USER --password $DOCKER_PASS olagatta.azurecr.io
+      - run: docker push olagatta.azurecr.io/bd:1.0
 
       - save_cache:
           paths:
