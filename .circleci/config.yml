@@ -18,6 +18,7 @@ jobs:
 
     steps:
       - checkout
+      - setup-remote-docker
 
       # Download and cache dependencies
       - restore_cache:
@@ -27,6 +28,15 @@ jobs:
             - v1-dependencies-
 
       - run: yarn install
+      - run:
+          command: |
+            docker build -t olagatta.azurecr.io/bd:1.0 .
+      - run:
+          command: |
+            docker login --username $DOCKER_USER --password $DOCKER_PASS olagatta.azurecr.io
+      - run:
+          command: |
+            docker push olagatta.azurecr.io/bd:1.0
 
       - save_cache:
           paths:
@@ -34,4 +44,4 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: yarn ng build --prod products-portal
+      - run: yarn ng build products-portal --prod
