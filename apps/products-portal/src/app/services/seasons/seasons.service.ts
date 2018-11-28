@@ -25,15 +25,10 @@ export class SeasonService {
   }
 
   addNewSeason(seasonToAdd: Season): Observable<Season | SeasonError>{
-    try{
-      console.log('lool');
-
-      return this.httpClient
-    .post<Season>(`${environment.apiUrl}/seasons`, seasonToAdd);
-    } catch (err) {
-      alert("error!!");
-      alert(JSON.stringify(err));
-    }
+    console.log(`getting all the seasons from the server`);
+    return this.httpClient
+    .post<Season>(`${environment.apiUrl}/season`, seasonToAdd)
+    .pipe(catchError(err => this.handleHttpError(err)));
   }
 
   private handleHttpError(err: HttpErrorResponse): Observable<SeasonError> {

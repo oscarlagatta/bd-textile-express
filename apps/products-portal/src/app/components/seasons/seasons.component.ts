@@ -36,7 +36,11 @@ export class SeasonsComponent implements OnInit {
   onSubmit() {
     alert(JSON.stringify(this.seasonForm.value));
     this.seasonService
-    .addNewSeason(this.seasonForm.value);
+    .addNewSeason(this.seasonForm.value)
+    .subscribe(
+      (data: Season) => console.log('added new season', data),
+      err => console.log(err),
+      () => console.log('successfully added new season')
+    );
   }
-
 }
