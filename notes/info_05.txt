@@ -1,0 +1,2 @@
+SET NX TO GENERATE SCSS instead of CSS
+ng config schematics.@nrwl/schematics:component.styleext scss

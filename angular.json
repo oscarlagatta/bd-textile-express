@@ -46,10 +46,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace":
-                    "apps/products-portal/src/environments/environment.ts",
-                  "with":
-                    "apps/products-portal/src/environments/environment.prod.ts"
+                  "replace": "apps/products-portal/src/environments/environment.ts",
+                  "with": "apps/products-portal/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -88,7 +86,9 @@
             "polyfills": "apps/products-portal/src/polyfills.ts",
             "tsConfig": "apps/products-portal/tsconfig.spec.json",
             "karmaConfig": "apps/products-portal/karma.conf.js",
-            "styles": ["apps/products-portal/src/styles.scss"],
+            "styles": [
+              "apps/products-portal/src/styles.scss"
+            ],
             "scripts": [],
             "assets": [
               "apps/products-portal/src/favicon.ico",
@@ -103,7 +103,9 @@
               "apps/products-portal/tsconfig.app.json",
               "apps/products-portal/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -128,7 +130,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/products-portal-e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -141,5 +145,10 @@
     },
     "defaultCollection": "@nrwl/schematics"
   },
-  "defaultProject": "products-portal"
+  "defaultProject": "products-portal",
+  "schematics": {
+    "@nrwl/schematics:component": {
+      "styleext": "scss"
+    }
+  }
 }
