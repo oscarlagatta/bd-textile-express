@@ -1,0 +1,55 @@
+<form [formGroup]="seasonForm" (ngSubmit)="onSubmit()" class="ui-g">
+  <p-panel header="Add Season" class="ui-g-12">
+    <div class="ui-g">
+      <label for="seasonName" class="ui-g-12 ui-md-2">Name*</label>
+
+      <input
+        for="seasonName"
+        class="ui-g-12 ui-md-5"
+        pInputText
+        id="seasonName"
+        formControlName="seasonName"
+        placeholder="Enter Season Name"
+      />
+
+      <!-- <div class="ui-g-12 ui-md-5">
+      --> <!-- for error messages --> <!--
+        <ecom-workspace-fielderrors
+          [form]="seasonForm"
+          fieldName="seasonName"
+          niceName="season Name"
+        ></ecom-workspace-fielderrors>
+      </div> -->
+    </div>
+
+    <div class="ui-g">
+      <label for="isSuppressed" class="ui-g-12 ui-md-2"></label>
+
+      <p-checkbox
+        [formControl]="seasonForm.controls['isSuppressed']"
+        for="isSuppressed"
+        class="ui-g-12 ui-md-5"
+        label="Is Suppressed"
+        id="isSuppressed"
+        formControlName="isSuppressed"
+      ></p-checkbox>
+    </div>
+    <div class="ui-g">
+      <label for="isVisible" class="ui-g-12 ui-md-2"></label>
+
+      <p-checkbox
+        [formControl]="seasonForm.controls['isVisible']"
+        for="isVisible"
+        class="ui-g-12 ui-md-5"
+        label="Is Visible"
+        id="isVisible"
+        formControlName="isVisible"></p-checkbox>
+    </div>
+    <button
+      pButton
+      type="submit"
+      [disabled]="hasFormErrors()"
+      label="Save"
+      icon="fa fa-floppy-o"></button>
+  </p-panel>
+</form>
