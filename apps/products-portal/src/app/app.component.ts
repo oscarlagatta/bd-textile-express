@@ -69,6 +69,12 @@ export class AppComponent implements OnInit, AfterViewInit {
         command: event => handleSelected(event)
       },
       {
+        label: 'Seasons',
+        icon: 'fa fa-umbrella',
+        routerLink: ['/seasons'],
+        command: event => handleSelected(event)
+      },
+      {
         label: 'Styles',
         icon: 'fa fa-clock-o',
         routerLink: ['/'],
@@ -109,7 +115,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       );
 
     this.brandService
-      .getBrandById(1)
+      .getBrandById(79)
       .subscribe(
         (data: Brand) => (this.selectedBrand = data),
         err => console.log(err),

@@ -26,6 +26,8 @@ import { ToggleViewContentComponent } from './components/query-decorator/toggle-
 import { BrandService } from './services/brands.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BrandResolverService } from './services/brand-resolver.service';
+import { SeasonService } from './services/seasons/seasons.service';
+import { SeasonsResolverService } from './services/seasons/seasons-resolver.service';
 
 import {
   MenuModule,
@@ -75,6 +77,7 @@ import { BrandsComponent } from './components/brands/brands.component';
 import { FielderrorsComponent } from './components/fielderrors/fielderrors.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SeasonsComponent } from './components/seasons/seasons.component';
 import { StockInventoryModule } from './stock-inventory/stock-inventory.module';
 
 const routes: Routes = [
@@ -92,6 +95,11 @@ const routes: Routes = [
   {
     path: 'brands',
     component: BrandsComponent
+  },
+  {
+    path: 'seasons',
+    component: SeasonsComponent,
+    resolve: { resolvedSeasons: SeasonsResolverService }
   }
 ];
 
@@ -109,7 +117,8 @@ const routes: Routes = [
     SettingsComponent,
     StatisticComponent,
     BrandsComponent,
-    FielderrorsComponent
+    FielderrorsComponent,
+    SeasonsComponent
   ],
   imports: [
     BrowserModule,
@@ -165,6 +174,8 @@ const routes: Routes = [
   providers: [
     BrandService,
     BrandResolverService,
+    SeasonService,
+    SeasonsResolverService,
     HttpCacheService,
     {
       provide: HTTP_INTERCEPTORS,
