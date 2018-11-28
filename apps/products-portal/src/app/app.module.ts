@@ -78,6 +78,7 @@ import { FielderrorsComponent } from './components/fielderrors/fielderrors.compo
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SeasonsComponent } from './components/seasons/seasons.component';
+import { StockInventoryModule } from './stock-inventory/stock-inventory.module';
 
 const routes: Routes = [
   {
@@ -159,6 +160,7 @@ const routes: Routes = [
     GrowlModule,
     DragDropModule,
     GalleriaModule,
+    StockInventoryModule,
     NxModule.forRoot(),
     RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
     StoreModule.forRoot(

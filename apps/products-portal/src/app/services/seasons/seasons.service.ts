@@ -14,7 +14,7 @@ import { areAllEquivalent } from "@angular/compiler/src/output/output_ast";
 
 @Injectable()
 export class SeasonService {
-  
+
   constructor (private httpClient : HttpClient){}
 
   getAllSeasons(): Observable<Season[] | SeasonError> {
@@ -25,20 +25,18 @@ export class SeasonService {
   }
 
   addNewSeason(seasonToAdd: Season): Observable<Season | SeasonError>{
-    alert(`about to contact oscar ` + `${environment.apiUrl}/season`);
-    alert(JSON.stringify(seasonToAdd));
-    return this.httpClient
-    .post<Season>(`${environment.apiUrl}/season`
-    , seasonToAdd
-    , {
-        headers: new HttpHeaders()
-          .set('Content-Type', 'x-www-form-urlencoded')
-      })
-    .pipe(catchError(err => this.handleHttpError(err)));
+    try{
+      console.log('lool');
+
+      return this.httpClient
+    .post<Season>(`${environment.apiUrl}/seasons`, seasonToAdd);
+    } catch (err) {
+      alert("error!!");
+      alert(JSON.stringify(err));
+    }
   }
 
   private handleHttpError(err: HttpErrorResponse): Observable<SeasonError> {
-    alert('err!');
     const dataError: SeasonError = new SeasonError();
     dataError.errorNumber = 200;
     dataError.message = err.statusText;

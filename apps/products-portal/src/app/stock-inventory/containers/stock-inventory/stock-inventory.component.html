@@ -1,0 +1,20 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <demo-workspace-stock-branch [parent]="form"></demo-workspace-stock-branch>
+
+    <demo-workspace-stock-selector
+      [parent]="form"
+      [products]="products"
+    ></demo-workspace-stock-selector>
+
+    <demo-workspace-stock-products
+      [parent]="form"
+    ></demo-workspace-stock-products>
+
+    <div>
+      <button type="submit" [disabled]="form.invalid">Order Stock</button>
+    </div>
+
+    <pre>{{ form.value | json }}</pre>
+  </form>
+</div>
