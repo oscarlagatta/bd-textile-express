@@ -59,7 +59,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       {
         label: 'Dashboard',
         icon: 'fa fa-home',
-        routerLink: ['/dashboard'],
+        routerLink: ['/'],
         command: event => handleSelected(event)
       },
       {
