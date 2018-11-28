@@ -79,6 +79,7 @@ import { FielderrorsComponent } from './components/fielderrors/fielderrors.compo
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SeasonsComponent } from './components/seasons/seasons.component';
 import { StockInventoryModule } from './stock-inventory/stock-inventory.module';
+import { ProductPortal2Component } from './components/product-portal2/product-portal2.component';
 
 const routes: Routes = [
   {
@@ -118,7 +119,8 @@ const routes: Routes = [
     StatisticComponent,
     BrandsComponent,
     FielderrorsComponent,
-    SeasonsComponent
+    SeasonsComponent,
+    ProductPortal2Component
   ],
   imports: [
     BrowserModule,

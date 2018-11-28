@@ -7,7 +7,7 @@
       "root": "apps/products-portal/",
       "sourceRoot": "apps/products-portal/src",
       "projectType": "application",
-      "prefix": "demo-workspace",
+      "prefix": "ecom-workspace",
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"

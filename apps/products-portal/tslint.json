@@ -1,17 +1,7 @@
 {
   "extends": "../../tslint.json",
   "rules": {
-    "directive-selector": [
-      true,
-      "attribute",
-      "demo-workspace",
-      "camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "demo-workspace",
-      "kebab-case"
-    ]
+    "directive-selector": [true, "attribute", "ecom-workspace", "camelCase"],
+    "component-selector": [true, "element", "ecom-workspace", "kebab-case"]
   }
 }
