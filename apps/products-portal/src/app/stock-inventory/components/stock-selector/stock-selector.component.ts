@@ -10,6 +10,7 @@ import { Product } from '../../containers/stock-inventory/stock-inventory.compon
 export class StockSelectorComponent implements OnInit {
   @Input() parent: FormGroup;
   @Input() products: Product[];
+  @Input() productsNg: any[];
   constructor() {}
 
   ngOnInit() {}

@@ -20,6 +20,13 @@ export class StockInventoryComponent implements OnInit {
     { id: 4, price: 90, name: 'iPhone' }
   ];
 
+  productsNg: any[] = [
+    { value: 1, label: 'Macbook Pro' },
+    { value: 2, label: 'IPod' },
+    { value: 3, label: 'Apple Watch' },
+    { value: 4, label: 'iPhone' }
+  ];
+
   form = new FormGroup({
     store: new FormGroup({
       branch: new FormControl('abc1'),

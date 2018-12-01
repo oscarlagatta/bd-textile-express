@@ -87,6 +87,12 @@ export class AppComponent implements OnInit, AfterViewInit {
         command: event => handleSelected(event)
       },
       {
+        label: 'Stock inventory',
+        icon: 'fa fa-cart-plus',
+        routerLink: ['/stock-inventory'],
+        command: event => handleSelected(event)
+      },
+      {
         label: 'My Profile',
         icon: 'fa fa-users',
         routerLink: ['/'],

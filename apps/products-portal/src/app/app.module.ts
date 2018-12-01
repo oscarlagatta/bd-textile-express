@@ -79,7 +79,7 @@ import { FielderrorsComponent } from './components/fielderrors/fielderrors.compo
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SeasonsComponent } from './components/seasons/seasons.component';
 import { StockInventoryModule } from './stock-inventory/stock-inventory.module';
-import { ProductPortal2Component } from './components/product-portal2/product-portal2.component';
+import { StockInventoryComponent } from './stock-inventory/containers/stock-inventory/stock-inventory.component';
 
 const routes: Routes = [
   {
@@ -101,6 +101,10 @@ const routes: Routes = [
     path: 'seasons',
     component: SeasonsComponent,
     resolve: { resolvedSeasons: SeasonsResolverService }
+  },
+  {
+    path: 'stock-inventory',
+    component: StockInventoryComponent
   }
 ];
 
@@ -119,8 +123,7 @@ const routes: Routes = [
     StatisticComponent,
     BrandsComponent,
     FielderrorsComponent,
-    SeasonsComponent,
-    ProductPortal2Component
+    SeasonsComponent
   ],
   imports: [
     BrowserModule,

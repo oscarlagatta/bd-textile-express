@@ -1,19 +1,38 @@
 <div [formGroup]="parent">
   <div formGroupName="selector">
-    <select formControlName="product_id">
-      <option value="">Select stock</option>
-      <option *ngFor="let product of products" [value]="product.id">
-        {{ product.name }}
-      </option>
-    </select>
-
-    <input
-      type="number"
-      step="10"
-      min="10"
-      max="1000"
-      formControlName="quantity"
-    />
-    <button type="button">Add stock</button>
+    <p-panel header="Products selection">
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-2">Product:</div>
+        <p-dropdown
+          [options]="productsNg"
+          formControlName="product_id"
+          [autoWidth]="false"
+          [filter]="true"
+          class="ui-grid-col-2"
+        ></p-dropdown>
+      </div>
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-2">Quantity:</div>
+        <div class="ui-grid-col-6">
+          <input
+            pInputText
+            type="number"
+            step="10"
+            min="10"
+            max="1000"
+            formControlName="quantity"
+          />
+        </div>
+        <div class="ui-grid-col-4"><!-- for the error message --></div>
+      </div>
+      <div class="ui-grid-row">
+        <button
+          pButton
+          type="button"
+          label="Add stock"
+          class="ui-grid-col-2"
+        ></button>
+      </div>
+    </p-panel>
   </div>
 </div>

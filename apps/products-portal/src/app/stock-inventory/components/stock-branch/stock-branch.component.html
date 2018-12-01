@@ -1,6 +1,31 @@
 <div [formGroup]="parent">
   <div formGroupName="store">
-    <input type="text" placeholder="Branch ID" formControlName="branch" />
-    <input type="text" placeholder="Manager Code" formControlName="code" />
+    <p-panel header="Branch">
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-2">Branch Id*:</div>
+        <div class="ui-grid-col-6">
+          <input
+            pInputText
+            type="text"
+            placeholder="Branch ID"
+            formControlName="branch"
+          />
+        </div>
+        <div class="ui-grid-col-4"><!-- for the error message --></div>
+      </div>
+
+      <div class="ui-grid-row">
+        <div class="ui-grid-col-2">Manager Code*:</div>
+        <div class="ui-grid-col-6">
+          <input
+            pInputText
+            type="text"
+            placeholder="Manager Code"
+            formControlName="code"
+          />
+        </div>
+        <div class="ui-grid-col-4"><!-- for the error message --></div>
+      </div>
+    </p-panel>
   </div>
 </div>

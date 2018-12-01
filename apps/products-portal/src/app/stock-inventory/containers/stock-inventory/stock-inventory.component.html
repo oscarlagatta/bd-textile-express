@@ -1,20 +1,30 @@
 <div>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <demo-workspace-stock-branch [parent]="form"></demo-workspace-stock-branch>
+    <p-panel header="Stock inventory">
+      <div
+        class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid"
+        style="margin: 10px 0px"
+      >
+        <demo-workspace-stock-branch
+          [parent]="form"
+        ></demo-workspace-stock-branch>
 
-    <demo-workspace-stock-selector
-      [parent]="form"
-      [products]="products"
-    ></demo-workspace-stock-selector>
+        <demo-workspace-stock-selector
+          [parent]="form"
+          [products]="products"
+          [productsNg]="productsNg"
+        ></demo-workspace-stock-selector>
 
-    <demo-workspace-stock-products
-      [parent]="form"
-    ></demo-workspace-stock-products>
+        <demo-workspace-stock-products
+          [parent]="form"
+        ></demo-workspace-stock-products>
 
-    <div>
-      <button type="submit" [disabled]="form.invalid">Order Stock</button>
-    </div>
+        <div>
+          <button type="submit" [disabled]="form.invalid">Order Stock</button>
+        </div>
 
-    <pre>{{ form.value | json }}</pre>
+        <pre>{{ form.value | json }}</pre>
+      </div>
+    </p-panel>
   </form>
 </div>
