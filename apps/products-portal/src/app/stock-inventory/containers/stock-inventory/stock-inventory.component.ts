@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormArray } from '@angular/forms';
+import { componentNeedsResolution } from '@angular/core/src/metadata/resource_loading';
 
 export interface Product {
   id: number;
@@ -32,15 +33,10 @@ export class StockInventoryComponent implements OnInit {
       branch: new FormControl('abc1'),
       code: new FormControl('0021')
     }),
-    selector: new FormGroup({
-      product_id: new FormControl(),
-      quantity: new FormControl(10)
-    }),
+    selector: this.createStock({}),
     stock: new FormArray([
-      new FormGroup({
-        product_id: new FormControl(3),
-        quantity: new FormControl(50)
-      })
+      this.createStock({ product_id: 1, quantity: 10 }),
+      this.createStock({ product_id: 3, quantity: 50 })
     ])
   });
   constructor() {}
@@ -49,5 +45,17 @@ export class StockInventoryComponent implements OnInit {
 
   onSubmit() {
     console.log('Submit: ', this.form.value);
+  }
+
+  createStock(stock) {
+    return new FormGroup({
+      product_id: new FormControl(parseInt(stock.product_id, 10) || ''),
+      quantity: new FormControl(stock.quantity || 10)
+    });
+  }
+
+  addStock(stock) {
+    const control = this.form.get('stock') as FormArray;
+    control.push(this.createStock(stock));
   }
 }

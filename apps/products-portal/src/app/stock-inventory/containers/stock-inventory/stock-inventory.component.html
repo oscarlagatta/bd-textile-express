@@ -13,6 +13,7 @@
           [parent]="form"
           [products]="products"
           [productsNg]="productsNg"
+          (added)="addStock($event)"
         ></demo-workspace-stock-selector>
 
         <demo-workspace-stock-products
