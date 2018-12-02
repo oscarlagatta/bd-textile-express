@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormArray } from '@angular/forms';
 import { componentNeedsResolution } from '@angular/core/src/metadata/resource_loading';
+import { ValueTransformer } from '@angular/compiler/src/util';
 
 export interface Product {
   id: number;
@@ -57,5 +58,11 @@ export class StockInventoryComponent implements OnInit {
   addStock(stock) {
     const control = this.form.get('stock') as FormArray;
     control.push(this.createStock(stock));
+  }
+
+  removeStock({ group, index }: { group: FormGroup; index: number }) {
+    console.log(group, index);
+    const control = this.form.get('stock') as FormArray;
+    control.removeAt(index);
   }
 }
