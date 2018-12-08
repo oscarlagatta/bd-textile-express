@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:44306/api',
+  apiUrl: 'http://api-pim.valkian.co.uk/api',
+  apiLocalUrl: 'http://localhost:3000',
   openIdConnectSettings: {
     // AS PER IDP configuration
     authority: 'https://localhost:44398/',

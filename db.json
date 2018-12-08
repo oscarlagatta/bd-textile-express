@@ -1,4 +1,224 @@
 {
-  "seasons":[{"seasonId":71,"seasonName":"Season_1030333","isVisible":null,"isSuppressed":null},{"seasonId":72,"seasonName":"Season_6760278","isVisible":null,"isSuppressed":null},{"seasonId":73,"seasonName":"Season_3029149","isVisible":null,"isSuppressed":null},{"seasonId":74,"seasonName":"Season_1063747","isVisible":null,"isSuppressed":null},{"seasonId":75,"seasonName":"Season_8195456","isVisible":null,"isSuppressed":null},{"seasonId":76,"seasonName":"Season_4750225","isVisible":null,"isSuppressed":null},{"seasonId":77,"seasonName":"Season_8267666","isVisible":null,"isSuppressed":null},{"seasonId":78,"seasonName":"Season_1504678","isVisible":null,"isSuppressed":null},{"seasonId":79,"seasonName":"Season_1306911","isVisible":null,"isSuppressed":null},{"seasonId":80,"seasonName":"Season_5375358","isVisible":null,"isSuppressed":null},{"seasonId":81,"seasonName":"Season_6665737","isVisible":null,"isSuppressed":null},{"seasonId":82,"seasonName":"Season_3031637","isVisible":null,"isSuppressed":null},{"seasonId":83,"seasonName":"Season_2596575","isVisible":null,"isSuppressed":null},{"seasonId":84,"seasonName":"Season_2263996","isVisible":null,"isSuppressed":null},{"seasonId":85,"seasonName":"Season_4615398","isVisible":null,"isSuppressed":null},{"seasonId":86,"seasonName":"Season_1267955","isVisible":null,"isSuppressed":null},{"seasonId":87,"seasonName":"Season_6281778","isVisible":null,"isSuppressed":null},{"seasonId":88,"seasonName":"Season_3262756","isVisible":null,"isSuppressed":null},{"seasonId":89,"seasonName":"ewrtwert","isVisible":null,"isSuppressed":null},{"seasonId":90,"seasonName":"hasta luego oscar","isVisible":null,"isSuppressed":null},{"seasonId":91,"seasonName":"hasta luego oscar","isVisible":null,"isSuppressed":null},{"seasonId":92,"seasonName":"hola oscar","isVisible":null,"isSuppressed":null},{"seasonId":93,"seasonName":"laolaol","isVisible":null,"isSuppressed":null},{"seasonId":94,"seasonName":"number one","isVisible":null,"isSuppressed":null},{"seasonId":95,"seasonName":"number two","isVisible":null,"isSuppressed":null}]
+  "cart": [
+    { "product_id": 4, "quantity": 10 },
+    { "product_id": 7, "quantity": 50 }
+  ],
+  "products": [
+    {
+      "productId": 4,
+      "productName": "Rib-knit cardigan L",
+      "styleId": 1,
+      "description":
+        "Cardigan in a soft rib knit with dropped shoulders and long sleeves with ribbed cuffs. No buttons.",
+      "ean13": null,
+      "base64": null,
+      "length": null,
+      "width": null,
+      "depth": null,
+      "weight": null,
+      "leadTime": 2,
+      "manufacturingDays": 7,
+      "price": 1200
+    },
+    {
+      "productId": 5,
+      "productName": "Rib-Knit cardigan M",
+      "styleId": 1,
+      "description":
+        "Cardigan in a soft rib knit with dropped shoulders and long sleeves with ribbed cuffs. No buttons.",
+      "ean13": null,
+      "base64": null,
+      "length": null,
+      "width": null,
+      "depth": null,
+      "weight": null,
+      "leadTime": 2,
+      "manufacturingDays": 7,
+      "price": 1350
+    },
+    {
+      "productId": 6,
+      "productName": "Rib-knit cardigan X",
+      "styleId": 1,
+      "description":
+        "Cardigan in a soft rib knit with dropped shoulders and long sleeves with ribbed cuffs. No buttons.",
+      "ean13": null,
+      "base64": null,
+      "length": null,
+      "width": null,
+      "depth": null,
+      "weight": null,
+      "leadTime": 2,
+      "manufacturingDays": 7,
+      "price": 1500
+    },
+    {
+      "productId": 7,
+      "productName": "Rib-knit cardigan XL",
+      "styleId": 1,
+      "description":
+        "Cardigan in a soft rib knit with dropped shoulders and long sleeves with ribbed cuffs. No buttons.",
+      "ean13": null,
+      "base64": null,
+      "length": null,
+      "width": null,
+      "depth": null,
+      "weight": null,
+      "leadTime": 2,
+      "manufacturingDays": 7,
+      "price": 3000
+    }
+  ],
+  "seasons": [
+    {
+      "seasonId": 71,
+      "seasonName": "Season_1030333",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 72,
+      "seasonName": "Season_6760278",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 73,
+      "seasonName": "Season_3029149",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 74,
+      "seasonName": "Season_1063747",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 75,
+      "seasonName": "Season_8195456",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 76,
+      "seasonName": "Season_4750225",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 77,
+      "seasonName": "Season_8267666",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 78,
+      "seasonName": "Season_1504678",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 79,
+      "seasonName": "Season_1306911",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 80,
+      "seasonName": "Season_5375358",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 81,
+      "seasonName": "Season_6665737",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 82,
+      "seasonName": "Season_3031637",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 83,
+      "seasonName": "Season_2596575",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 84,
+      "seasonName": "Season_2263996",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 85,
+      "seasonName": "Season_4615398",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 86,
+      "seasonName": "Season_1267955",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 87,
+      "seasonName": "Season_6281778",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 88,
+      "seasonName": "Season_3262756",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 89,
+      "seasonName": "ewrtwert",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 90,
+      "seasonName": "hasta luego oscar",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 91,
+      "seasonName": "hasta luego oscar",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 92,
+      "seasonName": "hola oscar",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 93,
+      "seasonName": "laolaol",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 94,
+      "seasonName": "number one",
+      "isVisible": null,
+      "isSuppressed": null
+    },
+    {
+      "seasonId": 95,
+      "seasonName": "number two",
+      "isVisible": null,
+      "isSuppressed": null
+    }
+  ]
 }
-

@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {
     "serve:products-portal": "ng s products-portal -o --port 4201",
+    "api": "json-server --watch db.json",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build products-portal",
