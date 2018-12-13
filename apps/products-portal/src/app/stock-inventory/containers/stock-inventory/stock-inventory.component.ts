@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { componentNeedsResolution } from '@angular/core/src/metadata/resource_loading';
 import { ValueTransformer } from '@angular/compiler/src/util';
 
@@ -29,18 +29,19 @@ export class StockInventoryComponent implements OnInit {
     { value: 4, label: 'iPhone' }
   ];
 
-  form = new FormGroup({
-    store: new FormGroup({
-      branch: new FormControl('abc1'),
-      code: new FormControl('0021')
+  form = this.fb.group({
+    store: this.fb.group({
+      branch: 'abc1',
+      code: '0021'
     }),
     selector: this.createStock({}),
-    stock: new FormArray([
+    stock: this.fb.array([
       this.createStock({ product_id: 1, quantity: 10 }),
       this.createStock({ product_id: 3, quantity: 50 })
     ])
   });
-  constructor() {}
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {}
 
@@ -50,8 +51,8 @@ export class StockInventoryComponent implements OnInit {
 
   createStock(stock) {
     return new FormGroup({
-      product_id: new FormControl(parseInt(stock.product_id, 10) || ''),
-      quantity: new FormControl(stock.quantity || 10)
+      product_id: this.fb.control(parseInt(stock.product_id, 10) || ''),
+      quantity: this.fb.control(stock.quantity || 10)
     });
   }
 
