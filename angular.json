@@ -136,6 +136,129 @@
           }
         }
       }
+    },
+    "marketplace-portal": {
+      "root": "apps/marketplace-portal/",
+      "sourceRoot": "apps/marketplace-portal/src",
+      "projectType": "application",
+      "prefix": "demo-workspace",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/marketplace-portal",
+            "index": "apps/marketplace-portal/src/index.html",
+            "main": "apps/marketplace-portal/src/main.ts",
+            "polyfills": "apps/marketplace-portal/src/polyfills.ts",
+            "tsConfig": "apps/marketplace-portal/tsconfig.app.json",
+            "assets": [
+              "apps/marketplace-portal/src/favicon.ico",
+              "apps/marketplace-portal/src/assets"
+            ],
+            "styles": [
+              "apps/marketplace-portal/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/marketplace-portal/src/environments/environment.ts",
+                  "with": "apps/marketplace-portal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "marketplace-portal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "marketplace-portal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "marketplace-portal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/marketplace-portal/src/test.ts",
+            "polyfills": "apps/marketplace-portal/src/polyfills.ts",
+            "tsConfig": "apps/marketplace-portal/tsconfig.spec.json",
+            "karmaConfig": "apps/marketplace-portal/karma.conf.js",
+            "styles": [
+              "apps/marketplace-portal/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/marketplace-portal/src/favicon.ico",
+              "apps/marketplace-portal/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/marketplace-portal/tsconfig.app.json",
+              "apps/marketplace-portal/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "marketplace-portal-e2e": {
+      "root": "apps/marketplace-portal-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/marketplace-portal-e2e/protractor.conf.js",
+            "devServerTarget": "marketplace-portal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "marketplace-portal:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/marketplace-portal-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

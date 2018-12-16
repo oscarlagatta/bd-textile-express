@@ -13,6 +13,12 @@
     },
     "products-portal-e2e": {
       "tags": []
+    },
+    "marketplace-portal": {
+      "tags": []
+    },
+    "marketplace-portal-e2e": {
+      "tags": []
     }
   }
 }
