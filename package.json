@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "serve:products-portal": "ng s products-portal -o --port 4201",
+    "serve:admin-portal": "ng s admin-portal -o --port 4202",
+    "serve:marketplace-portal": "ng s marketplace-portal -o --port 4203",
     "api": "json-server --watch db.json",
     "ng": "ng",
     "start": "ng serve",
