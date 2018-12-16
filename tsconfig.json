@@ -21,6 +21,12 @@
       ],
       "@demo-workspace/prime-ng": [
         "libs/prime-ng/src/index.ts"
+      ],
+      "@demo-workspace/shared/ui-login": [
+        "libs/shared/ui-login/src/index.ts"
+      ],
+      "@demo-workspace/shared/ui-toolbar": [
+        "libs/shared/ui-toolbar/src/index.ts"
       ]
     }
   },

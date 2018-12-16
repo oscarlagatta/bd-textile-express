@@ -31,6 +31,12 @@
     },
     "prime-ng": {
       "tags": []
+    },
+    "shared-ui-login": {
+      "tags": []
+    },
+    "shared-ui-toolbar": {
+      "tags": []
     }
   }
 }
