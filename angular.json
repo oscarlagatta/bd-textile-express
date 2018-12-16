@@ -259,6 +259,129 @@
           }
         }
       }
+    },
+    "admin-portal": {
+      "root": "apps/admin-portal/",
+      "sourceRoot": "apps/admin-portal/src",
+      "projectType": "application",
+      "prefix": "demo-workspace",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/admin-portal",
+            "index": "apps/admin-portal/src/index.html",
+            "main": "apps/admin-portal/src/main.ts",
+            "polyfills": "apps/admin-portal/src/polyfills.ts",
+            "tsConfig": "apps/admin-portal/tsconfig.app.json",
+            "assets": [
+              "apps/admin-portal/src/favicon.ico",
+              "apps/admin-portal/src/assets"
+            ],
+            "styles": [
+              "apps/admin-portal/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/admin-portal/src/environments/environment.ts",
+                  "with": "apps/admin-portal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "admin-portal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "admin-portal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "admin-portal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/admin-portal/src/test.ts",
+            "polyfills": "apps/admin-portal/src/polyfills.ts",
+            "tsConfig": "apps/admin-portal/tsconfig.spec.json",
+            "karmaConfig": "apps/admin-portal/karma.conf.js",
+            "styles": [
+              "apps/admin-portal/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/admin-portal/src/favicon.ico",
+              "apps/admin-portal/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/admin-portal/tsconfig.app.json",
+              "apps/admin-portal/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "admin-portal-e2e": {
+      "root": "apps/admin-portal-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/admin-portal-e2e/protractor.conf.js",
+            "devServerTarget": "admin-portal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin-portal:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/admin-portal-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
