@@ -25,6 +25,12 @@
     },
     "admin-portal-e2e": {
       "tags": []
+    },
+    "core-data": {
+      "tags": []
+    },
+    "prime-ng": {
+      "tags": []
     }
   }
 }

@@ -16,6 +16,12 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@demo-workspace/core-data": [
+        "libs/core-data/src/index.ts"
+      ],
+      "@demo-workspace/prime-ng": [
+        "libs/prime-ng/src/index.ts"
+      ]
     }
   },
   "exclude": [
